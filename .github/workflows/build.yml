@@ -1,0 +1,22 @@
+name: Windows build
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        shell: powershell
+        run: ./build.ps1
+      - name: Test persistence and reminders
+        shell: powershell
+        run: ./test.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TrayTodo-Windows
+          path: TrayTodo.exe

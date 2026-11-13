@@ -1,0 +1,17 @@
+# Build output and local test artifacts
+*.exe
+!downloads/TrayTodo.exe
+*.pdb
+test-results.txt
+bin/
+obj/
+.vs/
+
+# Personal task data must never be committed
+tasks*.json*
+ui-test*.json*
+*.bak
+*.tmp
+*.signal
+.env
+.env.*
